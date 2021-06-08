@@ -22,7 +22,7 @@ class BlocketController: UIViewController {
         
 
         view.addSubview(bottomNavigation)
-        bottomNavigation.anchor(left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, height: 120)
+        bottomNavigation.anchor(left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
         
     }
     
