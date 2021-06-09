@@ -99,7 +99,7 @@
             </objects>
             <point key="canvasLocation" x="-719" y="43"/>
         </scene>
-        <!--Watch-->
+        <!--Observers-->
         <scene sceneID="k02-84-hN1">
             <objects>
                 <viewController id="UKD-qY-hjb" customClass="NotifyController" customModule="blocket_test" customModuleProvider="target" sceneMemberID="viewController">
@@ -110,7 +110,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Watch" image="bell" catalog="system" id="QXJ-T0-8t3"/>
-                    <navigationItem key="navigationItem" id="PBM-rx-Bo8"/>
+                    <navigationItem key="navigationItem" title="Observers" id="PBM-rx-Bo8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iFT-WQ-57Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -144,13 +144,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Messages" image="message" catalog="system" id="QL7-WV-mtY"/>
-                    <navigationItem key="navigationItem" id="jDi-oH-X5j"/>
+                    <navigationItem key="navigationItem" title="Messages" id="jDi-oH-X5j"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WQp-vz-uBb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1596" y="725"/>
         </scene>
-        <!--Log in-->
+        <!--Profile-->
         <scene sceneID="pUU-KK-Ygp">
             <objects>
                 <viewController id="iao-RO-Tyd" customClass="AuthController" customModule="blocket_test" customModuleProvider="target" sceneMemberID="viewController">
@@ -161,11 +161,47 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Log in" image="person" catalog="system" id="vPF-kv-5UW"/>
-                    <navigationItem key="navigationItem" id="JIF-ox-lxH"/>
+                    <navigationItem key="navigationItem" title="Profile" id="9Cr-jx-8Ao">
+                        <barButtonItem key="rightBarButtonItem" image="gearshape" catalog="system" id="Wlq-ak-TXo">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="Ydm-1T-sSL" kind="show" id="HE3-4c-iQR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c7P-DT-igc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1596" y="43"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="0fi-lp-0hB">
+            <objects>
+                <tableViewController id="Ydm-1T-sSL" customClass="SettingsController" customModule="blocket_test" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="if0-MZ-2fP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="7UC-gj-tDA">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7UC-gj-tDA" id="Ke9-Wn-7RU">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Ydm-1T-sSL" id="0Ex-Yy-dSz"/>
+                            <outlet property="delegate" destination="Ydm-1T-sSL" id="cv5-vK-uJR"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Settings" id="oT6-sB-OGx"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yur-6O-em7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2616" y="43"/>
         </scene>
         <!--Log in-->
         <scene sceneID="a2r-UF-ff8">
@@ -190,6 +226,7 @@
     </scenes>
     <resources>
         <image name="bell" catalog="system" width="128" height="124"/>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="message" catalog="system" width="128" height="113"/>
         <image name="person" catalog="system" width="128" height="117"/>
