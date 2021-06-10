@@ -87,7 +87,6 @@ extension AdsController {
         controller.ad = ads[indexPath.row]
         navigationController?.pushViewController(controller, animated: true)
         
-        
     }
     
 }

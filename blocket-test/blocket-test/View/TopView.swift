@@ -34,7 +34,6 @@ class TopView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-
         
         addSubview(underLine)
         underLine.anchor(left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, height: 1)

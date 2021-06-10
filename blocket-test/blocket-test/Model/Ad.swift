@@ -15,12 +15,16 @@ struct Ad {
     var publishDate = ""
     var publishTime = ""
     var photo: UIImage
+    var category: String
+    var description = "Just a really nice thing!"
     
     
-    init(title: String, placement: String, price: String, photo: UIImage, comparisonTime: Date) {
+    init(title: String, placement: String, price: String, photo: UIImage, comparisonTime: Date, category: String = "Any", description: String) {
         self.title = title
         self.placement = placement
         self.price = price
+        self.category = category
+        self.description = description
         self.photo = photo
         self.comparisonTime = comparisonTime
         

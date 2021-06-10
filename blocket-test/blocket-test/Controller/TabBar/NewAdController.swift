@@ -28,6 +28,5 @@ class NewAdController: UIViewController {
         view.addSubview(registerPrompt)
         registerPrompt.anchor(top: topView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 150)
     }
-
-
+    
 }
