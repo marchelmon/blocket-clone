@@ -13,6 +13,8 @@
 		3C2678E52670B6A7006B77D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C2678E42670B6A6006B77D8 /* Assets.xcassets */; };
 		3C2678EE2670B6CE006B77D8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2678ED2670B6CE006B77D8 /* Extensions.swift */; };
 		3C2678F12670B6F2006B77D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C2678F02670B6F2006B77D8 /* Main.storyboard */; };
+		3C52A87A267163D4005BB18A /* Ad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C52A879267163D4005BB18A /* Ad.swift */; };
+		3C52A87D26716490005BB18A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C52A87C26716490005BB18A /* Service.swift */; };
 		3C6A5F5C2670BA660091D2B5 /* MessagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6A5F5B2670BA660091D2B5 /* MessagesController.swift */; };
 		3C6A5F632670BA770091D2B5 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6A5F5E2670BA770091D2B5 /* AuthController.swift */; };
 		3C6A5F652670BA770091D2B5 /* NewAdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6A5F602670BA770091D2B5 /* NewAdController.swift */; };
@@ -34,6 +36,8 @@
 		3C2678E42670B6A6006B77D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C2678ED2670B6CE006B77D8 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		3C2678F02670B6F2006B77D8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		3C52A879267163D4005BB18A /* Ad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ad.swift; sourceTree = "<group>"; };
+		3C52A87C26716490005BB18A /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		3C6A5F5B2670BA660091D2B5 /* MessagesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesController.swift; sourceTree = "<group>"; };
 		3C6A5F5E2670BA770091D2B5 /* AuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
 		3C6A5F602670BA770091D2B5 /* NewAdController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAdController.swift; sourceTree = "<group>"; };
@@ -76,8 +80,9 @@
 		3C2678CE2670B599006B77D8 /* blocket-test */ = {
 			isa = PBXGroup;
 			children = (
-				3C6A5F742670BBCF0091D2B5 /* Controller */,
+				3C52A878267163BC005BB18A /* Model */,
 				3C6A5F792670BC0F0091D2B5 /* View */,
+				3C6A5F742670BBCF0091D2B5 /* Controller */,
 				3C2678CF2670B599006B77D8 /* AppDelegate.swift */,
 				3C2678D12670B599006B77D8 /* SceneDelegate.swift */,
 				3C2678F02670B6F2006B77D8 /* Main.storyboard */,
@@ -85,8 +90,17 @@
 				3C2678ED2670B6CE006B77D8 /* Extensions.swift */,
 				3C2678E42670B6A6006B77D8 /* Assets.xcassets */,
 				3C2678DD2670B59B006B77D8 /* Info.plist */,
+				3C52A87C26716490005BB18A /* Service.swift */,
 			);
 			path = "blocket-test";
+			sourceTree = "<group>";
+		};
+		3C52A878267163BC005BB18A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3C52A879267163D4005BB18A /* Ad.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		3C6A5F742670BBCF0091D2B5 /* Controller */ = {
@@ -201,6 +215,8 @@
 			files = (
 				3C6A5F6C2670BB550091D2B5 /* RegisterPromptView.swift in Sources */,
 				3C2678D02670B599006B77D8 /* AppDelegate.swift in Sources */,
+				3C52A87D26716490005BB18A /* Service.swift in Sources */,
+				3C52A87A267163D4005BB18A /* Ad.swift in Sources */,
 				3C2678EE2670B6CE006B77D8 /* Extensions.swift in Sources */,
 				3C6A5F662670BA770091D2B5 /* AdsController.swift in Sources */,
 				3CAA52DB2670D94500F4AB3C /* SettingsCell.swift in Sources */,

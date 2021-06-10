@@ -20,9 +20,8 @@ class AdsController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //filterButton.image = filterImage
-        
+            
+        print(Service.shared.ads.count)
         
     }
     
