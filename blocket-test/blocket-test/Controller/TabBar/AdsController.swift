@@ -7,9 +7,14 @@
 
 import UIKit
 
+private let reuseIdentifier = "AdCell"
+
 class AdsController: UITableViewController {
     
-    //MARK: - Properties    
+    //MARK: - Properties
+    
+    private var ads = [Ad]()
+    
     @IBOutlet weak var searchBar: UITextField!
     @IBOutlet weak var topButton: UIBarButtonItem!
     
@@ -21,7 +26,9 @@ class AdsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
             
-        print(Service.shared.ads.count)
+        tableView.register(AdCell.self, forCellReuseIdentifier: reuseIdentifier)
+        
+        ads = Service.shared.ads
         
     }
     
@@ -47,6 +54,40 @@ class AdsController: UITableViewController {
     @IBAction func startedTyping(_ sender: UITextField) {
         topButton.image = nil
         topButton.image = cancelImage
+    }
+    
+}
+
+
+//MARK: - UITableViewDataSource / UITableViewDelegate
+extension AdsController {
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return ads.count
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! AdCell
+        let ad = ads[indexPath.row]
+        cell.ad = ad
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let controller = AdController()
+        controller.ad = ads[indexPath.row]
+        navigationController?.pushViewController(controller, animated: true)
+        
+        
     }
     
 }

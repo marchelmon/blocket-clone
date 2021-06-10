@@ -15,6 +15,8 @@
 		3C2678F12670B6F2006B77D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C2678F02670B6F2006B77D8 /* Main.storyboard */; };
 		3C52A87A267163D4005BB18A /* Ad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C52A879267163D4005BB18A /* Ad.swift */; };
 		3C52A87D26716490005BB18A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C52A87C26716490005BB18A /* Service.swift */; };
+		3C52A8802671FB85005BB18A /* AdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C52A87F2671FB84005BB18A /* AdCell.swift */; };
+		3C52A8832671FEC2005BB18A /* AdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C52A8822671FEC2005BB18A /* AdController.swift */; };
 		3C6A5F5C2670BA660091D2B5 /* MessagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6A5F5B2670BA660091D2B5 /* MessagesController.swift */; };
 		3C6A5F632670BA770091D2B5 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6A5F5E2670BA770091D2B5 /* AuthController.swift */; };
 		3C6A5F652670BA770091D2B5 /* NewAdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6A5F602670BA770091D2B5 /* NewAdController.swift */; };
@@ -38,6 +40,8 @@
 		3C2678F02670B6F2006B77D8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3C52A879267163D4005BB18A /* Ad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ad.swift; sourceTree = "<group>"; };
 		3C52A87C26716490005BB18A /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		3C52A87F2671FB84005BB18A /* AdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdCell.swift; sourceTree = "<group>"; };
+		3C52A8822671FEC2005BB18A /* AdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdController.swift; sourceTree = "<group>"; };
 		3C6A5F5B2670BA660091D2B5 /* MessagesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesController.swift; sourceTree = "<group>"; };
 		3C6A5F5E2670BA770091D2B5 /* AuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
 		3C6A5F602670BA770091D2B5 /* NewAdController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAdController.swift; sourceTree = "<group>"; };
@@ -108,6 +112,7 @@
 			children = (
 				3C6A5F762670BBEE0091D2B5 /* TabBar */,
 				3C6A5F702670BB640091D2B5 /* SettingsController.swift */,
+				3C52A8822671FEC2005BB18A /* AdController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -139,6 +144,7 @@
 			children = (
 				3CAA52D72670D93500F4AB3C /* NotificationsCell.swift */,
 				3CAA52DA2670D94500F4AB3C /* SettingsCell.swift */,
+				3C52A87F2671FB84005BB18A /* AdCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -222,9 +228,11 @@
 				3CAA52DB2670D94500F4AB3C /* SettingsCell.swift in Sources */,
 				3CAA52D82670D93500F4AB3C /* NotificationsCell.swift in Sources */,
 				3C6A5F652670BA770091D2B5 /* NewAdController.swift in Sources */,
+				3C52A8832671FEC2005BB18A /* AdController.swift in Sources */,
 				3C6A5F712670BB640091D2B5 /* SettingsController.swift in Sources */,
 				3C6A5F632670BA770091D2B5 /* AuthController.swift in Sources */,
 				3C6A5F6D2670BB550091D2B5 /* TopView.swift in Sources */,
+				3C52A8802671FB85005BB18A /* AdCell.swift in Sources */,
 				3C2678D22670B599006B77D8 /* SceneDelegate.swift in Sources */,
 				3C6A5F5C2670BA660091D2B5 /* MessagesController.swift in Sources */,
 				3C6A5F672670BA770091D2B5 /* NotifyController.swift in Sources */,
