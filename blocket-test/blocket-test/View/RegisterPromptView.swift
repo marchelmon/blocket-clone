@@ -92,7 +92,6 @@ class RegisterPromptView: UIView {
     private lazy var loginButton = BlocketButton(text: "Log in to get started!")
 
     
-    
     //MARK: - Lifecycle
     
     override init(frame: CGRect) {
