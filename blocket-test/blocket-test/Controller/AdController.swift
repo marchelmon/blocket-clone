@@ -137,7 +137,7 @@ class AdController: UIViewController, UIScrollViewDelegate {
 
         view.addSubview(adDescription)
         adDescription.anchor(top: categoryRow.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor,
-                             paddingTop: 20, paddingLeft: 15, paddingRight: 15)
+                             paddingTop: 30, paddingLeft: 15, paddingRight: 15)
 
         view.addSubview(messageButton)
         messageButton.anchor(top: adDescription.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor,

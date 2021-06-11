@@ -40,4 +40,17 @@ class Service {
     
     lazy var ads: [Ad] = [ad1, ad2, ad3, ad4, ad5, ad6]
     
+    
+    let categories: [String] = [
+        "Vehicle",
+        "For the home",
+        "Residence",
+        "Personal",
+        "Electronics",
+        "Leisure & Hobbies",
+        "Business",
+        "Other",
+    ]
+    
+    
 }

@@ -51,13 +51,13 @@ class AdsController: UITableViewController {
         topButton.image = nil
         topButton.image = filterImage
     }
+    
     @IBAction func startedTyping(_ sender: UITextField) {
         topButton.image = nil
         topButton.image = cancelImage
     }
     
 }
-
 
 //MARK: - UITableViewDataSource / UITableViewDelegate
 extension AdsController {

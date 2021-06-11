@@ -24,7 +24,6 @@
 		3C6A5F662670BA770091D2B5 /* AdsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6A5F612670BA770091D2B5 /* AdsController.swift */; };
 		3C6A5F672670BA770091D2B5 /* NotifyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6A5F622670BA770091D2B5 /* NotifyController.swift */; };
 		3C6A5F6C2670BB550091D2B5 /* RegisterPromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6A5F6A2670BB540091D2B5 /* RegisterPromptView.swift */; };
-		3C6A5F6D2670BB550091D2B5 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6A5F6B2670BB550091D2B5 /* TopView.swift */; };
 		3C6A5F712670BB640091D2B5 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6A5F702670BB640091D2B5 /* SettingsController.swift */; };
 		3CAA52D82670D93500F4AB3C /* NotificationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAA52D72670D93500F4AB3C /* NotificationsCell.swift */; };
 		3CAA52DB2670D94500F4AB3C /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAA52DA2670D94500F4AB3C /* SettingsCell.swift */; };
@@ -50,7 +49,6 @@
 		3C6A5F612670BA770091D2B5 /* AdsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdsController.swift; sourceTree = "<group>"; };
 		3C6A5F622670BA770091D2B5 /* NotifyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifyController.swift; sourceTree = "<group>"; };
 		3C6A5F6A2670BB540091D2B5 /* RegisterPromptView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterPromptView.swift; sourceTree = "<group>"; };
-		3C6A5F6B2670BB550091D2B5 /* TopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		3C6A5F702670BB640091D2B5 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		3CAA52D72670D93500F4AB3C /* NotificationsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsCell.swift; sourceTree = "<group>"; };
 		3CAA52DA2670D94500F4AB3C /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
@@ -136,7 +134,6 @@
 			children = (
 				3CAA52D62670D91900F4AB3C /* TableViewCells */,
 				3C6A5F6A2670BB540091D2B5 /* RegisterPromptView.swift */,
-				3C6A5F6B2670BB550091D2B5 /* TopView.swift */,
 				3C52A8A626726B52005BB18A /* ListRow.swift */,
 			);
 			path = View;
@@ -235,7 +232,6 @@
 				3C52A8832671FEC2005BB18A /* AdController.swift in Sources */,
 				3C6A5F712670BB640091D2B5 /* SettingsController.swift in Sources */,
 				3C6A5F632670BA770091D2B5 /* AuthController.swift in Sources */,
-				3C6A5F6D2670BB550091D2B5 /* TopView.swift in Sources */,
 				3C52A8802671FB85005BB18A /* AdCell.swift in Sources */,
 				3C2678D22670B599006B77D8 /* SceneDelegate.swift in Sources */,
 				3C6A5F5C2670BA660091D2B5 /* MessagesController.swift in Sources */,
