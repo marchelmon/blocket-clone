@@ -66,7 +66,7 @@
             </objects>
             <point key="canvasLocation" x="-284" y="1096"/>
         </scene>
-        <!--New ad-->
+        <!--Create Ad-->
         <scene sceneID="Pja-PB-HWm">
             <objects>
                 <viewController id="mDO-ky-slo" customClass="NewAdController" customModule="blocket_test" customModuleProvider="target" sceneMemberID="viewController">
@@ -77,7 +77,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="New ad" image="plus.circle" catalog="system" id="Znx-hg-zRK"/>
-                    <navigationItem key="navigationItem" id="ndC-vr-jtO"/>
+                    <navigationItem key="navigationItem" title="Create Ad" id="ndC-vr-jtO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8bV-sp-KaS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

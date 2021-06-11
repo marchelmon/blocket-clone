@@ -68,30 +68,10 @@ class AdController: UIViewController, UIScrollViewDelegate {
         label.numberOfLines = 0
         return label
     }()
-    
-    private lazy var messageButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle(" Send message ", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = #colorLiteral(red: 0.359662356, green: 0.8235294223, blue: 0.5010703752, alpha: 1)
-        let img = UIImage(systemName: "envelope")?.withTintColor(.white).withRenderingMode(.alwaysOriginal)
-        button.setImage(img, for: .normal)
-        button.layer.cornerRadius = 6
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 18)
-        return button
-    }()
-    
-    private lazy var phoneNumberButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Show phone number", for: .normal)
-        button.setTitleColor(UIColor(white: 0.1, alpha: 0.9), for: .normal)
-        button.layer.cornerRadius = 6
-        button.layer.borderWidth = 1
-        button.layer.borderColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 18)
-        return button
-    }()
-    
+        
+    private let messageButtonImage = UIImage(systemName: "envelope")?.withTintColor(.white).withRenderingMode(.alwaysOriginal)
+    private lazy var messageButton = BlocketButton(text: " Send Message", image: messageButtonImage)
+    private let phoneButton = BlocketButton(text: "Show phone number",color: .white, textColor: UIColor(white: 0.1, alpha: 0.9), hasBorder: true)
     
     //MARK: - Lifecycle
     
@@ -130,7 +110,7 @@ class AdController: UIViewController, UIScrollViewDelegate {
         view.addSubview(locationRow)
         locationRow.anchor(top: publishedRow.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor)
         
-        let categoryRow = ListRow(label: "Category", info: ad.category)
+        let categoryRow = ListRow(label: "Category", info: ad.category.description)
         
         view.addSubview(categoryRow)
         categoryRow.anchor(top: locationRow.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor)
@@ -143,8 +123,8 @@ class AdController: UIViewController, UIScrollViewDelegate {
         messageButton.anchor(top: adDescription.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor,
                              paddingTop: 40, paddingLeft: 15, paddingRight: 15, height: 50)
         
-        view.addSubview(phoneNumberButton)
-        phoneNumberButton.anchor(top: messageButton.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor,
+        view.addSubview(phoneButton)
+        phoneButton.anchor(top: messageButton.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor,
                                  paddingTop: 12, paddingLeft: 15, paddingRight: 15, height: 50)
         
     }

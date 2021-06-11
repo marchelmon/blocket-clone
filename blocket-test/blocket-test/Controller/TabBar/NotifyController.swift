@@ -12,7 +12,6 @@ class NotifyController: UIViewController {
     //MARK: - Properties
     
     private let registerPrompt = RegisterPromptView()
-    private let topView = TopView()
     
     
     //MARK: - Lifecycle

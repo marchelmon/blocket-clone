@@ -89,15 +89,8 @@ class RegisterPromptView: UIView {
         return label
     }()
     
-    private lazy var loginButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Log in to get started!", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = #colorLiteral(red: 0.359662356, green: 0.8235294223, blue: 0.5010703752, alpha: 1)
-        button.layer.cornerRadius = 5
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-        return button
-    }()
+    private lazy var loginButton = BlocketButton(text: "Log in to get started!")
+
     
     
     //MARK: - Lifecycle

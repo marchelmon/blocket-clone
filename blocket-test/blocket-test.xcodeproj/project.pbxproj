@@ -25,6 +25,7 @@
 		3C6A5F672670BA770091D2B5 /* NotifyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6A5F622670BA770091D2B5 /* NotifyController.swift */; };
 		3C6A5F6C2670BB550091D2B5 /* RegisterPromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6A5F6A2670BB540091D2B5 /* RegisterPromptView.swift */; };
 		3C6A5F712670BB640091D2B5 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6A5F702670BB640091D2B5 /* SettingsController.swift */; };
+		3C6D627D2673B6C600FACD22 /* BlocketButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6D627C2673B6C600FACD22 /* BlocketButton.swift */; };
 		3CAA52D82670D93500F4AB3C /* NotificationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAA52D72670D93500F4AB3C /* NotificationsCell.swift */; };
 		3CAA52DB2670D94500F4AB3C /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAA52DA2670D94500F4AB3C /* SettingsCell.swift */; };
 /* End PBXBuildFile section */
@@ -50,6 +51,7 @@
 		3C6A5F622670BA770091D2B5 /* NotifyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifyController.swift; sourceTree = "<group>"; };
 		3C6A5F6A2670BB540091D2B5 /* RegisterPromptView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterPromptView.swift; sourceTree = "<group>"; };
 		3C6A5F702670BB640091D2B5 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		3C6D627C2673B6C600FACD22 /* BlocketButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocketButton.swift; sourceTree = "<group>"; };
 		3CAA52D72670D93500F4AB3C /* NotificationsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsCell.swift; sourceTree = "<group>"; };
 		3CAA52DA2670D94500F4AB3C /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,12 +89,11 @@
 				3C52A878267163BC005BB18A /* Model */,
 				3C6A5F792670BC0F0091D2B5 /* View */,
 				3C6A5F742670BBCF0091D2B5 /* Controller */,
-				3C52A87C26716490005BB18A /* Service.swift */,
+				3C6D627A2673B69700FACD22 /* Utils */,
 				3C2678CF2670B599006B77D8 /* AppDelegate.swift */,
 				3C2678D12670B599006B77D8 /* SceneDelegate.swift */,
 				3C2678F02670B6F2006B77D8 /* Main.storyboard */,
 				3C2678DA2670B59B006B77D8 /* LaunchScreen.storyboard */,
-				3C2678ED2670B6CE006B77D8 /* Extensions.swift */,
 				3C2678E42670B6A6006B77D8 /* Assets.xcassets */,
 				3C2678DD2670B59B006B77D8 /* Info.plist */,
 			);
@@ -137,6 +138,16 @@
 				3C52A8A626726B52005BB18A /* ListRow.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		3C6D627A2673B69700FACD22 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				3C2678ED2670B6CE006B77D8 /* Extensions.swift */,
+				3C52A87C26716490005BB18A /* Service.swift */,
+				3C6D627C2673B6C600FACD22 /* BlocketButton.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		3CAA52D62670D91900F4AB3C /* TableViewCells */ = {
@@ -233,6 +244,7 @@
 				3C6A5F712670BB640091D2B5 /* SettingsController.swift in Sources */,
 				3C6A5F632670BA770091D2B5 /* AuthController.swift in Sources */,
 				3C52A8802671FB85005BB18A /* AdCell.swift in Sources */,
+				3C6D627D2673B6C600FACD22 /* BlocketButton.swift in Sources */,
 				3C2678D22670B599006B77D8 /* SceneDelegate.swift in Sources */,
 				3C6A5F5C2670BA660091D2B5 /* MessagesController.swift in Sources */,
 				3C6A5F672670BA770091D2B5 /* NotifyController.swift in Sources */,
