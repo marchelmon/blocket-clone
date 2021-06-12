@@ -73,30 +73,11 @@
                     <view key="view" contentMode="scaleToFill" id="XaY-sQ-Rj2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tcg-VZ-SyJ">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="414" id="qjv-a8-oeY"/>
-                                </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="Qgn-8N-1Z0"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="FdG-2w-SVZ"/>
-                            </scrollView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="b11-MN-c5B"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Tcg-VZ-SyJ" firstAttribute="bottom" secondItem="b11-MN-c5B" secondAttribute="bottom" id="6i9-3Q-rq6"/>
-                            <constraint firstItem="Tcg-VZ-SyJ" firstAttribute="top" secondItem="b11-MN-c5B" secondAttribute="top" id="gO1-KL-TpC"/>
-                            <constraint firstItem="Tcg-VZ-SyJ" firstAttribute="leading" secondItem="b11-MN-c5B" secondAttribute="leading" id="iuw-Wq-aZ9"/>
-                            <constraint firstItem="Tcg-VZ-SyJ" firstAttribute="trailing" secondItem="b11-MN-c5B" secondAttribute="trailing" id="zGL-IN-vpC"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="New ad" image="plus.circle" catalog="system" id="Znx-hg-zRK"/>
                     <navigationItem key="navigationItem" title="Create Ad" id="ndC-vr-jtO"/>
-                    <connections>
-                        <outlet property="scrollView" destination="Tcg-VZ-SyJ" id="1va-4f-fv7"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8bV-sp-KaS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
