@@ -25,8 +25,6 @@ class SettingsController: UITableViewController {
     }
 }
 
-
-
 //MARK: - TableViewDelegate/DataSource
 extension SettingsController {
     
@@ -103,32 +101,10 @@ extension SettingsController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 { return }
-        
-        let controller = RandomController()
-    present(controller, animated: true, completion: nil)
+
+        //TODO: Should present setting related controller
         
     }
     
 }
 
-class RandomController: UIViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        view.backgroundColor = .white
-        print("RandomViewController found in SettingsController file")
-        
-        let title: UILabel = {
-            let label = UILabel()
-            label.text = "More information about topic"
-            label.font = UIFont.systemFont(ofSize: 22)
-            return label
-        }()
-        
-        view.addSubview(title)
-        title.centerX(inView: view)
-        title.centerY(inView: view, constant: -80)
-    }
-    
-}
