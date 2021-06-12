@@ -223,13 +223,13 @@ extension NewAdController: UIScrollViewDelegate {
 
 extension NewAdController: TappableViewDelegate {
     func getUserLocation() {
-        print("Get location")
+
     }
     func showAllCategories() {
         print("Get categories")
     }
     func showAllLocations() {
-        print("Get locations")
-    }
+        let controller = LocationController()
+        navigationController?.pushViewController(controller, animated: true)    }
 }
 
