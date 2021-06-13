@@ -28,8 +28,13 @@ class AdsController: UITableViewController {
             
         tableView.register(AdCell.self, forCellReuseIdentifier: reuseIdentifier)
         
-        ads = Service.shared.ads
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
+        ads = Service.shared.ads.reversed()
+        tableView.reloadData()
     }
     
     //MARK: - Actions

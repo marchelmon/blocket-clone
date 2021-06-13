@@ -8,9 +8,14 @@
 import UIKit
 import MapKit
 
+protocol NewAdControllerDelegate: class {
+    func updateWithNewAd()
+}
+
 class NewAdController: UIViewController {
 
     //MARK: - Properties    
+    weak var delegate: NewAdControllerDelegate?
     
     private let locationManager: CLLocationManager = LocationHandler.shared.locationManager
     
@@ -92,11 +97,24 @@ class NewAdController: UIViewController {
         locationTapView.delegate = self
                 
         previewButton.addTarget(self, action: #selector(handlePreviewAd), for: .touchUpInside)
+        continueButton.addTarget(self, action: #selector(handleContinue), for: .touchUpInside)
         
         configureUI()
     }
     
     //MARK: - Actions
+    
+    @objc func handleContinue() {
+        let ad = Ad(title: headerField.text ?? "Untitled",
+                    location: locationTapView.viewText.text ?? "Unknown",
+                    price: priceField.text ?? "0kr",
+                    photo: buttons[0].imageView?.image ?? #imageLiteral(resourceName: "blocket"),
+                    comparisonTime: Date(),
+                    category: categoryTapView.viewText.text ?? "Other",
+                    description: descriptionArea.text ?? "No description")
+        Service.shared.ads.append(ad)
+        delegate?.updateWithNewAd()
+    }
     
     @objc func handlePreviewAd() {
         let ad = Ad(title: headerField.text ?? "Untitled",
@@ -111,7 +129,6 @@ class NewAdController: UIViewController {
         controller.ad = ad
         
         present(controller, animated: true, completion: nil)
-        
     }
     
     @objc func handleSelectPhoto(sender: UIButton) {

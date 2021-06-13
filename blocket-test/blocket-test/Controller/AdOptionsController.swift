@@ -74,10 +74,11 @@ extension AdOptionsController {
         } else if optionType == .location {
             handlingController.selectedLocationIndex = indexPath.row
         }
-
-        let selectedCell = tableView.cellForRow(at: indexPath)
-        selectedCell?.accessoryType = .checkmark
-        tableView.reloadData()
+  
+        navigationController?.popViewController(animated: true)
+//        let selectedCell = tableView.cellForRow(at: indexPath)
+//        selectedCell?.accessoryType = .checkmark
+//        tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

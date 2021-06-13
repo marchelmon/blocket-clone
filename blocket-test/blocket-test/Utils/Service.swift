@@ -39,7 +39,7 @@ class Service {
                       category: "Electronics", description: "A 1000 year old laptop")
 
     
-    lazy var ads: [Ad] = [ad1, ad2, ad3, ad4, ad5, ad6]
+    lazy var ads: [Ad] = [ad2, ad3, ad4, ad5, ad6, ad1]
     
     let locations = [
         "Göteborg",
