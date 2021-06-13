@@ -6,10 +6,14 @@
 //
 
 import UIKit
+import MapKit
 
 class NewAdController: UIViewController {
 
-    //MARK: - Properties
+    //MARK: - Properties    
+    
+    private let locationManager: CLLocationManager = LocationHandler.shared.locationManager
+    
     private lazy var scrollView: UIScrollView = {
         let scroll = UIScrollView()
         scroll.delegate = self
@@ -20,6 +24,8 @@ class NewAdController: UIViewController {
     
     private let imagePicker = UIImagePickerController()
     private var imageindex = 0
+    var selectedCategoryIndex = 0
+    var selectedLocationIndex = 0
     
     private var buttons = [UIButton]()
     
@@ -52,6 +58,7 @@ class NewAdController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        locationManager.delegate = self
         imagePicker.delegate = self
         categoryTapView.delegate = self
         locationTapView.delegate = self
@@ -221,9 +228,21 @@ extension NewAdController: UIImagePickerControllerDelegate, UINavigationControll
 extension NewAdController: UIScrollViewDelegate {
 }
 
-extension NewAdController: TappableViewDelegate {
+extension NewAdController: TappableViewDelegate, CLLocationManagerDelegate {
     func getUserLocation() {
-
+        print("Get user location")
+        switch CLLocationManager.authorizationStatus() {
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .restricted, .denied:
+            locationManager.requestWhenInUseAuthorization()
+        case .authorizedAlways:
+            locationManager.startUpdatingLocation()
+        case .authorizedWhenInUse:
+            locationManager.startUpdatingLocation()
+        @unknown default:
+            print("DEFAULT location in switch")
+        }
     }
     func showAllCategories() {
         let controller = AdOptionsController(optionType: .category)
@@ -233,6 +252,18 @@ extension NewAdController: TappableViewDelegate {
         let controller = AdOptionsController(optionType: .location)
         navigationController?.pushViewController(controller, animated: true)
         
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.first else { return }
+        location.fetchCityAndCountry { (city, country, error) in
+            
+            guard let city = city else { return }
+            
+            print("CITY: \(city)")
+            
+        }
     }
 }
 
