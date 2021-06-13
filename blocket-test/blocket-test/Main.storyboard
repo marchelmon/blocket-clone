@@ -95,16 +95,11 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="For sale in all of Sweden" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWb-27-rbR">
-                                    <rect key="frame" x="15" y="15" width="194" height="22"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7T-fm-AAK">
-                                    <rect key="frame" x="358" y="7" width="40" height="40"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7T-fm-AAK">
+                                    <rect key="frame" x="372.5" y="7" width="25.5" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="6uc-G3-eBD"/>
+                                    </constraints>
                                     <color key="tintColor" red="0.80758248730964466" green="0.18783203604146329" blue="0.15757752965885111" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <state key="normal">
                                         <color key="titleColor" red="1" green="0.01345195827" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -112,12 +107,32 @@
                                         <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
                                     </state>
                                 </button>
-                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hp8-DS-VOu">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hp8-DS-VOu">
                                     <rect key="frame" x="0.0" y="49" width="414" height="1"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" systemColor="systemGray2Color"/>
                                 </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RPO-rT-ZeK">
+                                    <rect key="frame" x="19" y="1.5" width="194" height="47"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <state key="normal" title="For sale in all of Sweden">
+                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="pressedLocationTitle:" destination="E81-9a-i85" eventType="touchUpInside" id="8ze-kB-HEs"/>
+                                    </connections>
+                                </button>
                             </subviews>
+                            <constraints>
+                                <constraint firstItem="Q7T-fm-AAK" firstAttribute="top" secondItem="SF4-kH-Pji" secondAttribute="top" constant="6.7662003438908869" id="8Xt-r6-EEs"/>
+                                <constraint firstItem="RPO-rT-ZeK" firstAttribute="centerY" secondItem="SF4-kH-Pji" secondAttribute="centerY" id="EPW-6B-d39"/>
+                                <constraint firstItem="hp8-DS-VOu" firstAttribute="leading" secondItem="SF4-kH-Pji" secondAttribute="leading" id="VPn-ZF-CzW"/>
+                                <constraint firstItem="hp8-DS-VOu" firstAttribute="centerX" secondItem="SF4-kH-Pji" secondAttribute="centerX" id="XmC-dS-XP3"/>
+                                <constraint firstAttribute="trailing" secondItem="Q7T-fm-AAK" secondAttribute="trailing" constant="16" id="cFm-wm-Rut"/>
+                                <constraint firstAttribute="bottom" secondItem="hp8-DS-VOu" secondAttribute="bottom" id="kLT-5F-d1n"/>
+                                <constraint firstItem="RPO-rT-ZeK" firstAttribute="leading" secondItem="SF4-kH-Pji" secondAttribute="leading" constant="19" id="pQp-ch-Ule"/>
+                                <constraint firstItem="hp8-DS-VOu" firstAttribute="top" secondItem="Q7T-fm-AAK" secondAttribute="bottom" constant="2.2337996561091131" id="uUz-ZK-MSY"/>
+                                <constraint firstItem="RPO-rT-ZeK" firstAttribute="top" secondItem="SF4-kH-Pji" secondAttribute="top" constant="1.2590011796615954" id="xnC-63-8ID"/>
+                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdCell" id="ZZd-wK-7pq">
@@ -155,6 +170,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="locationTitleButton" destination="RPO-rT-ZeK" id="Nk0-hd-giq"/>
                         <outlet property="searchBar" destination="msn-Tt-Xe4" id="Reo-zY-d7U"/>
                         <outlet property="topButton" destination="vea-ze-2tH" id="sD1-zB-K39"/>
                     </connections>

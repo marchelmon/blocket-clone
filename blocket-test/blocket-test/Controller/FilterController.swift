@@ -18,6 +18,9 @@ class FilterController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
     }
     
     

@@ -17,6 +17,7 @@ class AdsController: UITableViewController {
     
     @IBOutlet weak var searchBar: UITextField!
     @IBOutlet weak var topButton: UIBarButtonItem!
+    @IBOutlet weak var locationTitleButton: UIButton!
     
     private let filterImage = UIImage(systemName: "slider.horizontal.3")
     private let cancelImage = UIImage(systemName: "xmark")
@@ -60,6 +61,10 @@ class AdsController: UITableViewController {
     @IBAction func startedTyping(_ sender: UITextField) {
         topButton.image = nil
         topButton.image = cancelImage
+    }
+    
+    @IBAction func pressedLocationTitle(_ sender: UIButton) {
+        print("\(sender.titleLabel?.text) is the location text")
     }
     
 }
