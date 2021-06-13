@@ -40,5 +40,37 @@ class Service {
     
     lazy var ads: [Ad] = [ad1, ad2, ad3, ad4, ad5, ad6]
     
+    let locations = [
+        "Göteborg",
+        "Stockholm",
+        "Malmö",
+        "Jönköping",
+        "Lund",
+        "Luleå",
+        "Örebro",
+        "Halmstad",
+        "Umeå",
+        "Linköping",
+        "Skövde",
+        "Växjö",
+        "Uddevalla",
+        "Trollhättan",
+        "Strömstad",
+        "Karlstad"
+    ]
+    let categories = [
+        "Vehicle",
+        "For the home",
+        "Residence",
+        "Personal",
+        "Electronics",
+        "Leisure",
+        "Business",
+        "Other"
+    ]
     
 }
+
+
+
+

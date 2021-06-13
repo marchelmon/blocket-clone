@@ -226,10 +226,13 @@ extension NewAdController: TappableViewDelegate {
 
     }
     func showAllCategories() {
-        print("Get categories")
+        let controller = AdOptionsController(optionType: .category)
+        navigationController?.pushViewController(controller, animated: true)
     }
     func showAllLocations() {
-        let controller = LocationController()
-        navigationController?.pushViewController(controller, animated: true)    }
+        let controller = AdOptionsController(optionType: .location)
+        navigationController?.pushViewController(controller, animated: true)
+        
+    }
 }
 
