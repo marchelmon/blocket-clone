@@ -105,7 +105,7 @@ class AdController: UIViewController, UIScrollViewDelegate {
         view.addSubview(publishedRow)
         publishedRow.anchor(top: priceTag.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 15)
         
-        let locationRow = ListRow(label: "Location", info: ad.placement)
+        let locationRow = ListRow(label: "Location", info: ad.location)
         
         view.addSubview(locationRow)
         locationRow.anchor(top: publishedRow.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor)
@@ -136,7 +136,7 @@ class AdController: UIViewController, UIScrollViewDelegate {
         guard let ad = ad else { return }
         photo.image = ad.photo
         adTitle.text = ad.title
-        location.text = ad.placement
+        location.text = ad.location
         priceTag.text = "\(ad.price)kr"
         adDescription.text = ad.description
 

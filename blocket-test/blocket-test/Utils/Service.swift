@@ -19,24 +19,24 @@ class Service {
     let tv = #imageLiteral(resourceName: "tv")
     let laptop = #imageLiteral(resourceName: "laptop")
     
-    lazy var ad1 = Ad(title: "Volvo V60, 2019", placement: "Göteborg", price: "589 000",
+    lazy var ad1 = Ad(title: "Volvo V60, 2019", location: "Göteborg", price: "589 000",
                       photo: bil, comparisonTime: Date(timeIntervalSinceNow: -10000),
-                      category: .vehicle, description: "Hej! *Nyservad på Skobes i Vetlanda 2021-05-14 med olja, alla filter samt ny vindruta.\n*Kamrem bytt på 17,320 mil även detta gjort på Skobes i Vetlanda.*Dokumentation finns på alla service tillfällen. * Nya sommardäck Augusti 2020 - GoodYear EagleF1 Asymetric 5. * Volvo Ocean Race Fälgar 18 som vi köpte till bilen under svärfars ägo.*Vinterhjul Volvo Original *Tonade Rutor hos Mr.Cap Navigator, Värmare på tidur, Helljusassistent, Bluetooth allt för en bra komfort.Går fantastiskt fint i motor & låda, välvårdad både av nuvarande samt tidigare ägare. 2:a brukaren, första var ett företag (gått som tjänstebil) *FINANS GÅR ATT ORDNA*")
-    lazy var ad2 = Ad(title: "Byrå", placement: "Stockholm", price: "999",
+                      category: "Vehicle", description: "Hej! *Nyservad på Skobes i Vetlanda 2021-05-14 med olja, alla filter samt ny vindruta.\n*Kamrem bytt på 17,320 mil även detta gjort på Skobes i Vetlanda.*Dokumentation finns på alla service tillfällen. * Nya sommardäck Augusti 2020 - GoodYear EagleF1 Asymetric 5. * Volvo Ocean Race Fälgar 18 som vi köpte till bilen under svärfars ägo.*Vinterhjul Volvo Original *Tonade Rutor hos Mr.Cap Navigator, Värmare på tidur, Helljusassistent, Bluetooth allt för en bra komfort.Går fantastiskt fint i motor & låda, välvårdad både av nuvarande samt tidigare ägare. 2:a brukaren, första var ett företag (gått som tjänstebil) *FINANS GÅR ATT ORDNA*")
+    lazy var ad2 = Ad(title: "Byrå", location: "Stockholm", price: "999",
                       photo: byra, comparisonTime: Date(timeIntervalSinceNow: -100000),
-                      category: .home, description: "Just a really nice storage thing")
-    lazy var ad3 = Ad(title: "Stol", placement: "Malmö", price: "100",
+                      category: "For the home", description: "Just a really nice storage thing")
+    lazy var ad3 = Ad(title: "Stol", location: "Malmö", price: "100",
                       photo: stol, comparisonTime: Date(timeIntervalSinceNow: -200000),
-                      category: .home, description: "Just a really nice chair")
-    lazy var ad4 = Ad(title: "Cykel", placement: "Göteborg", price: "500",
+                      category: "For the home", description: "Just a really nice chair")
+    lazy var ad4 = Ad(title: "Cykel", location: "Göteborg", price: "500",
                       photo: cykel, comparisonTime: Date(timeIntervalSinceNow: -300000),
-                      category: .leisure, description: "A really nice bike! Not Stolen!")
-    lazy var ad5 = Ad(title: "TV 40\"", placement: "Göteborg", price: "1 850",
+                      category: "Leisure", description: "A really nice bike! Not Stolen!")
+    lazy var ad5 = Ad(title: "TV 40\"", location: "Göteborg", price: "1 850",
                       photo: tv, comparisonTime: Date(timeIntervalSinceNow: -400000),
-                      category: .electronics, description: "Please buy it, please")
-    lazy var ad6 = Ad(title: "Laptop", placement: "Göteborg", price: "90",
+                      category: "Electronics", description: "Please buy it, please")
+    lazy var ad6 = Ad(title: "Laptop", location: "Göteborg", price: "90",
                       photo: laptop, comparisonTime: Date(timeIntervalSinceNow: -500000),
-                      category: .electronics, description: "A 1000 year old laptop")
+                      category: "Electronics", description: "A 1000 year old laptop")
 
     
     lazy var ads: [Ad] = [ad1, ad2, ad3, ad4, ad5, ad6]

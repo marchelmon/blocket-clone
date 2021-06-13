@@ -17,23 +17,39 @@ class NewAdController: UIViewController {
     private lazy var scrollView: UIScrollView = {
         let scroll = UIScrollView()
         scroll.delegate = self
-        scroll.contentSize = CGSize(width: self.view.frame.size.width, height: self.view.frame.size.height + 300)
+        scroll.contentSize = CGSize(width: self.view.frame.size.width, height: self.view.frame.size.height + 800)
         scroll.showsHorizontalScrollIndicator = false
         return scroll
     }()
     
     private let imagePicker = UIImagePickerController()
-    private var imageindex = 0
-    var selectedCategoryIndex = 0
-    var selectedLocationIndex = 0
+    private var imageIndex = 0
+    var selectedCategoryIndex: Int = 1000 {
+        didSet {
+            guard selectedCategoryIndex != 1000 else { return }
+            self.categoryTapView.viewText.textColor = UIColor(white: 0.1, alpha: 0.9)
+            categoryTapView.viewText.text = Service.shared.categories[selectedCategoryIndex]
+        }
+    }
+    var selectedLocationIndex: Int = 1000 {
+        didSet {
+            guard selectedLocationIndex != 1000 else { return }
+            locationTapView.viewText.textColor = UIColor(white: 0.1, alpha: 0.9)
+            locationTapView.viewText.text = Service.shared.locations[selectedLocationIndex]
+        }
+    }
     
     private var buttons = [UIButton]()
     
     private let adKindLarge = SimpleLabel(text: "What would you like to sell?", fontSize: 22, isBold: true)
+    private let adInfoLarge = SimpleLabel(text: "Ad information?", fontSize: 22, isBold: true)
     private let contactsLarge = SimpleLabel(text: "Contacts", fontSize: 22, isBold: true)
     private let imagesLabel = SimpleLabel(text: "Images", fontSize: 15, isBold: true)
     private let categoryLabel = SimpleLabel(text: "Category", fontSize: 15, isBold: true)
     private let locationLabel = SimpleLabel(text: "Location", fontSize: 15, isBold: true)
+    private let headerLabel = SimpleLabel(text: "Header", fontSize: 15, isBold: true)
+    private let descriptionLabel = SimpleLabel(text: "Description", fontSize: 15, isBold: true)
+    private let priceLabel = SimpleLabel(text: "Price", fontSize: 15, isBold: true)
     
     private let categoryTapView = TappableView(placeholder: "Select Category", includeLocationButton: false)
     private let locationTapView = TappableView(placeholder: "Select Location", includeLocationButton: true)
@@ -44,7 +60,19 @@ class NewAdController: UIViewController {
     
     private lazy var nameField = createTextField(placeholder: "")
     private lazy var emailField = createTextField(placeholder: "john@doe.com")
-    private lazy var phoneField = createTextField(placeholder: "+46 ...")
+    private lazy var phoneField = createTextField(placeholder: "+46 ")
+    private lazy var headerField = createTextField(placeholder: "")
+    private lazy var priceField = createTextField(placeholder: "")
+
+    private let descriptionArea: UITextView = {
+        let tv = UITextView()
+        tv.font = UIFont.systemFont(ofSize: 15)
+        tv.textColor = UIColor(white: 0.1, alpha: 0.9)
+        tv.layer.cornerRadius = 5
+        tv.layer.borderWidth = 1
+        tv.layer.borderColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        return tv
+    }()
     
     private lazy var phoneToggle = createPhoneToggleView(text: "Hide phone number")
     private lazy var tempToggle = createPhoneToggleView(text: "Temporary phone number")
@@ -63,16 +91,51 @@ class NewAdController: UIViewController {
         categoryTapView.delegate = self
         locationTapView.delegate = self
                 
+        previewButton.addTarget(self, action: #selector(handlePreviewAd), for: .touchUpInside)
+        
         configureUI()
     }
     
-    
     //MARK: - Actions
     
-    @objc func handleSelectPhoto(sender: UIButton) {
-        imageindex = sender.tag
+    @objc func handlePreviewAd() {
+        let ad = Ad(title: headerField.text ?? "Untitled",
+                    location: locationTapView.viewText.text ?? "Unknown",
+                    price: priceField.text ?? "0kr",
+                    photo: buttons[0].imageView?.image ?? #imageLiteral(resourceName: "blocket"),
+                    comparisonTime: Date(),
+                    category: categoryTapView.viewText.text ?? "Other",
+                    description: descriptionArea.text ?? "No description")
+        
+        let controller = AdController()
+        controller.ad = ad
+        
+        present(controller, animated: true, completion: nil)
+        
     }
     
+    @objc func handleSelectPhoto(sender: UIButton) {
+        imageIndex = sender.tag
+        if buttons[imageIndex].imageView?.image == nil {
+            self.present(imagePicker, animated: true)
+
+        } else {
+            let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            
+            let newAction = UIAlertAction(title: "Add Image", style: .default) { _ in
+                self.present(self.imagePicker, animated: true)
+            }
+            let removeAction = UIAlertAction(title: "Remove Image", style: .destructive) { _ in
+                self.buttons[self.imageIndex].setImage(nil, for: .normal)
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .default)
+            alert.addAction(newAction)
+            alert.addAction(removeAction)
+            alert.addAction(cancelAction)
+            
+            present(alert, animated: true, completion: nil)
+        }
+    }
     
     //MARK: - Helpers
     
@@ -97,9 +160,30 @@ class NewAdController: UIViewController {
         
         scrollView.addSubview(categoryTapView)
         categoryTapView.anchor(top: categoryLabel.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 10, paddingLeft: 20, paddingRight: 20, height: 50)
+        
+        scrollView.addSubview(adInfoLarge)
+        adInfoLarge.anchor(top: categoryTapView.bottomAnchor, left: view.leftAnchor, paddingTop: 20, paddingLeft: 15)
+        
+        scrollView.addSubview(headerLabel)
+        headerLabel.anchor(top: adInfoLarge.bottomAnchor, left: view.leftAnchor, paddingTop: 20, paddingLeft: 15)
+        
+        scrollView.addSubview(headerField)
+        headerField.anchor(top: headerLabel.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 8, paddingLeft: 20, paddingRight: 20, height: 50)
 
+        scrollView.addSubview(descriptionLabel)
+        descriptionLabel.anchor(top: headerField.bottomAnchor, left: view.leftAnchor, paddingTop: 12, paddingLeft: 15)
+        
+        scrollView.addSubview(descriptionArea)
+        descriptionArea.anchor(top: descriptionLabel.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 8, paddingLeft: 15, paddingRight: 15, height: 90)
+        
+        scrollView.addSubview(priceLabel)
+        priceLabel.anchor(top: descriptionArea.bottomAnchor, left: view.leftAnchor, paddingTop: 30, paddingLeft: 15)
+        
+        scrollView.addSubview(priceField)
+        priceField.anchor(top: priceLabel.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 8, paddingLeft: 20, paddingRight: 20, height: 50)
+        
         scrollView.addSubview(locationLabel)
-        locationLabel.anchor(top: categoryTapView.bottomAnchor, left: view.leftAnchor, paddingTop: 12, paddingLeft: 15)
+        locationLabel.anchor(top: priceField.bottomAnchor, left: view.leftAnchor, paddingTop: 25, paddingLeft: 15)
 
         scrollView.addSubview(locationTapView)
         locationTapView.anchor(top: locationLabel.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 10, paddingLeft: 20, paddingRight: 20, height: 50)
@@ -112,19 +196,19 @@ class NewAdController: UIViewController {
         nameLabel.anchor(top: contactsLarge.bottomAnchor, left: view.leftAnchor, paddingTop: 15, paddingLeft: 15)
 
         scrollView.addSubview(nameField)
-        nameField.anchor(top: nameLabel.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 8, paddingLeft: 15, paddingRight: 15, height: 50)
+        nameField.anchor(top: nameLabel.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 8, paddingLeft: 20, paddingRight: 20, height: 50)
 
         scrollView.addSubview(emailLabel)
         emailLabel.anchor(top: nameField.bottomAnchor, left: view.leftAnchor, paddingTop: 12, paddingLeft: 15)
 
         scrollView.addSubview(emailField)
-        emailField.anchor(top: emailLabel.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 8, paddingLeft: 15, paddingRight: 15, height: 50)
+        emailField.anchor(top: emailLabel.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 8, paddingLeft: 20, paddingRight: 20, height: 50)
 
         scrollView.addSubview(phoneLabel)
         phoneLabel.anchor(top: emailField.bottomAnchor, left: view.leftAnchor, paddingTop: 12, paddingLeft: 15)
 
         scrollView.addSubview(phoneField)
-        phoneField.anchor(top: phoneLabel.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 8, paddingLeft: 15, paddingRight: 15, height: 50)
+        phoneField.anchor(top: phoneLabel.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 8, paddingLeft: 20, paddingRight: 20, height: 50)
 
         //PHONE TOGGLE
         scrollView.addSubview(phoneToggle)
@@ -220,6 +304,10 @@ class NewAdController: UIViewController {
 extension NewAdController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
+        guard let selectedImage = info[.originalImage] as? UIImage else { return }
+        self.buttons[self.imageIndex].setImage(nil, for: .normal)
+        buttons[imageIndex].setImage(selectedImage.withRenderingMode(.alwaysOriginal), for: .normal)
+        
         dismiss(animated: true, completion: nil)
     }
 }
@@ -245,15 +333,14 @@ extension NewAdController: TappableViewDelegate, CLLocationManagerDelegate {
         }
     }
     func showAllCategories() {
-        let controller = AdOptionsController(optionType: .category)
+        let controller = AdOptionsController(handlingController: self, optionType: .category)
         navigationController?.pushViewController(controller, animated: true)
     }
     func showAllLocations() {
-        let controller = AdOptionsController(optionType: .location)
+        let controller = AdOptionsController(handlingController: self, optionType: .location)
         navigationController?.pushViewController(controller, animated: true)
         
     }
-    
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else { return }
@@ -261,7 +348,8 @@ extension NewAdController: TappableViewDelegate, CLLocationManagerDelegate {
             
             guard let city = city else { return }
             
-            print("CITY: \(city)")
+            self.locationTapView.viewText.textColor = UIColor(white: 0.1, alpha: 0.9)
+            self.locationTapView.viewText.text = city
             
         }
     }

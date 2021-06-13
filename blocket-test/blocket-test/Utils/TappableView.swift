@@ -17,7 +17,7 @@ class TappableView: UIView {
     
     weak var delegate: TappableViewDelegate?
     
-    private let viewText: UILabel = {
+    var viewText: UILabel = {
         let label = UILabel()
         label.textColor = .lightGray
         label.font = UIFont.systemFont(ofSize: 16)

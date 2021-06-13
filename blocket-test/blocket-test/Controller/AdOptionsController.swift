@@ -18,14 +18,16 @@ class AdOptionsController: UITableViewController {
     
     //MARK: - Properties
     
-    private var selectedIndex: Int?
+    var handlingController: NewAdController
+    
     private let optionType: OptionType
     
     private let options: [String]
     
     //MARK: - Lifecycle
     
-    init(optionType: OptionType) {
+    init(handlingController: NewAdController, optionType: OptionType) {
+        self.handlingController = handlingController
         self.optionType = optionType
         self.options = optionType == .location ? Service.shared.locations : Service.shared.categories
         super.init(nibName: nil, bundle: nil)
@@ -60,13 +62,19 @@ extension AdOptionsController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: optionCell, for: indexPath)
+        let selectedIndex = optionType == .category ? handlingController.selectedCategoryIndex : handlingController.selectedLocationIndex
         cell.accessoryType = indexPath.row == selectedIndex ? .checkmark : .none
         cell.textLabel?.text = options[indexPath.row]
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedIndex = indexPath.row
+        if optionType == .category {
+            handlingController.selectedCategoryIndex = indexPath.row
+        } else if optionType == .location {
+            handlingController.selectedLocationIndex = indexPath.row
+        }
+
         let selectedCell = tableView.cellForRow(at: indexPath)
         selectedCell?.accessoryType = .checkmark
         tableView.reloadData()

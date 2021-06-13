@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum Category: CustomStringConvertible {
+enum Category: CustomStringConvertible, CaseIterable {
     case vehicle
     case home
     case residence
@@ -37,25 +37,23 @@ enum Category: CustomStringConvertible {
             return "Other"
         }
     }
-    
-    
 }
 
 struct Ad {
     var title: String
-    var placement: String
+    var location: String
     var price: String
     var comparisonTime: Date
     var publishDate = ""
     var publishTime = ""
     var photo: UIImage
-    var category: Category
+    var category: String
     var description = "Just a really nice thing!"
     
     
-    init(title: String, placement: String, price: String, photo: UIImage, comparisonTime: Date, category: Category = .other, description: String) {
+    init(title: String, location: String, price: String, photo: UIImage, comparisonTime: Date, category: String, description: String) {
         self.title = title
-        self.placement = placement
+        self.location = location
         self.price = price
         self.category = category
         self.description = description

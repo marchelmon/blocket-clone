@@ -90,7 +90,7 @@ class AdCell: UITableViewCell {
     func configureCell() {
 
         title.text = ad.title
-        location.text = ad.placement
+        location.text = ad.location
         priceTag.text = "\(ad.price)kr"
         photo.image = ad.photo
         
