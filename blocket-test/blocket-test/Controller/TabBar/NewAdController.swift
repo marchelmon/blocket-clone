@@ -335,7 +335,6 @@ extension NewAdController: UIScrollViewDelegate {
 
 extension NewAdController: TappableViewDelegate, CLLocationManagerDelegate {
     func getUserLocation() {
-        print("Get user location")
         switch CLLocationManager.authorizationStatus() {
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()

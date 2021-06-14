@@ -47,7 +47,8 @@ class AdsController: UITableViewController {
             topButton.image = nil
             topButton.image = filterImage
         } else {
-            print("Show filter controller")
+            let controller = FilterController()
+            present(controller, animated: true, completion: nil)
         }
     }
     
@@ -64,7 +65,8 @@ class AdsController: UITableViewController {
     }
     
     @IBAction func pressedLocationTitle(_ sender: UIButton) {
-        print("\(sender.titleLabel?.text) is the location text")
+        let controller = FilterController()
+        present(controller, animated: true, completion: nil)
     }
     
 }

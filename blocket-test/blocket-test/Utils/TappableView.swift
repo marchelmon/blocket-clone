@@ -24,21 +24,7 @@ class TappableView: UIView {
         return label
     }()
     
-    private lazy var locationButton: UIButton = {
-        let image = UIImage(systemName: "location.fill")?.withRenderingMode(.alwaysOriginal).withTintColor(#colorLiteral(red: 0.04465086914, green: 0.5049166132, blue: 1, alpha: 1))
-        let button = UIButton()
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-        button.setImage(image, for: .normal)
-        button.setTitle(" GPS", for: .normal)
-        button.setTitleColor(#colorLiteral(red: 0.04465086914, green: 0.5049166132, blue: 1, alpha: 1), for: .normal)
-        button.addTarget(self, action: #selector(handleLocation), for: .touchUpInside)
-        button.setDimensions(width: 60, height: 30)
-        button.backgroundColor = .white
-        button.layer.borderWidth = 1
-        button.layer.borderColor = #colorLiteral(red: 0.04465086914, green: 0.5049166132, blue: 1, alpha: 1)
-        button.layer.cornerRadius = 6
-        return button
-    }()
+    private let locationButton: LocationButton
     
     private let arrowIcon: UIImageView = {
         let image = UIImage(systemName: "chevron.right")?.withRenderingMode(.alwaysOriginal).withTintColor(.black)
@@ -47,7 +33,8 @@ class TappableView: UIView {
         return iv
     }()
     
-    init(placeholder: String, includeLocationButton: Bool = false) {
+    init(placeholder: String, includeLocationButton: Bool = false, locationButtonColor: UIColor = .white) {
+        self.locationButton = LocationButton(color: locationButtonColor)
         super.init(frame: .zero)
         
         viewText.text = placeholder
