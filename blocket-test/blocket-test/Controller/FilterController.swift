@@ -13,9 +13,12 @@ class FilterController: UIViewController, UIScrollViewDelegate {
     
     //MARK: - Properties
     
+    private var categoryIndex = 0
+    private var locationIndex = 0
+    
     private lazy var scrollView: UIScrollView = {
         let scroll = UIScrollView()
-        scroll.contentSize = CGSize(width: view.frame.width, height: 1200)
+        scroll.contentSize = CGSize(width: view.frame.width, height: 1000)
         scroll.delegate = self
         return scroll
     }()
@@ -62,20 +65,36 @@ class FilterController: UIViewController, UIScrollViewDelegate {
     private lazy var loweredPriceRow = FilterRow(rowType: .usingToggle, delegate: self, labelText: "Lowered price only", isFirstInSection: true)
     private lazy var largeImagesRow = FilterRow(rowType: .usingToggle, delegate: self, labelText: "Large Images", isLastInSection: true)
         
+    private let setFilterButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Set Filter", for: .normal)
+        button.setTitleColor(#colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1), for: .normal)
+        return button
+    }()
+    
     
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        title = "Filter"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(dismissFilter))
+        navigationItem.backButtonTitle = "Cancel"
+        navigationController?.navigationItem.backBarButtonItem = .init(title: "Cancel", style: .done, target: self, action: #selector(dismissFilter))
         
         configureSectionsAndRows()
-        
+     
+        view.addSubview(setFilterButton)
+        setFilterButton.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingLeft: 15, paddingRight: 15, height: 50)
     }
     
     
+    //MARK: - Actions
     
-    
+    @objc func dismissFilter() {
+        dismiss(animated: true, completion: nil)
+    }
     
     //MARK: - Helpers
     
@@ -164,19 +183,38 @@ extension FilterController: UIPickerViewDelegate, UIPickerViewDataSource {
 
 extension FilterController: FilterRowDelegate {
     func showLocations() {
-        print("DELEGATE WORKS")
+        let controller = AdOptionsController(optionType: .location, selectedIndex: locationIndex)
+        controller.delegate = self
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     func askForLocation() {
-        print("DELEGATE WORKS")
+
     }
     
     func showCategories() {
-        print("DELEGATE WORKS")
+        let controller = AdOptionsController(optionType: .category, selectedIndex: categoryIndex)
+        controller.delegate = self
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     func tappedPicker(pickerType: FilterRowType) {
-        print("DELEGATE WORKS")
+
+    }    
+}
+
+extension FilterController: AdOptionsControllerDelegate {
+    func didSelectCategory(withIndex index: Int) {
+        categoryRow.optionText.text = Service.shared.categories[index]
+        categoryIndex = index
+
+        navigationController?.popViewController(animated: true)
     }
     
+    func didSelectLocation(withIndex index: Int) {
+        locationRow.optionText.text = Service.shared.locations[index]
+        locationIndex = index
+        
+        navigationController?.popViewController(animated: true)
+    }
 }

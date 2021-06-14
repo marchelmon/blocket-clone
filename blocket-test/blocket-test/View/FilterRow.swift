@@ -42,6 +42,7 @@ class FilterRow: UIView {
     let optionText: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15)
+        label.textColor = UIColor(white: 0.1, alpha: 0.9)
         label.text = ""
         return label
     }()
@@ -140,15 +141,15 @@ class FilterRow: UIView {
         addSubview(arrow)
         arrow.centerY(inView: self)
         arrow.anchor(right: rightAnchor, paddingRight: 15)
-        
+        optionText.text = rowType == .location ? "Sweden" : "All"
         addSubview(optionText)
         optionText.centerY(inView: self)
-        optionText.anchor(right: arrow.leftAnchor)
+        optionText.anchor(right: arrow.leftAnchor, paddingRight: 10)
     }
     func configureForPicker() {
         addSubview(optionText)
         optionText.centerY(inView: self)
-        optionText.anchor(right: rightAnchor, paddingRight: 15)
+        optionText.anchor(right: rightAnchor, paddingRight: 20)
         if rowType == .sorting { optionText.text = "Latest" }
         if rowType == .advertiserKind { optionText.text = "Private" }
         if rowType == .adKind { optionText.text = "For sale" }

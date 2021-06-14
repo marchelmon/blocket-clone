@@ -14,21 +14,26 @@ enum OptionType {
 
 private let optionCell = "OptionCell"
 
+protocol AdOptionsControllerDelegate: class {
+    func didSelectCategory(withIndex index: Int)
+    func didSelectLocation(withIndex index: Int)
+}
+
 class AdOptionsController: UITableViewController {
     
     //MARK: - Properties
     
-    var handlingController: NewAdController
+    weak var delegate: AdOptionsControllerDelegate?
     
     private let optionType: OptionType
-    
     private let options: [String]
+    private var selectedIndex: Int
     
     //MARK: - Lifecycle
     
-    init(handlingController: NewAdController, optionType: OptionType) {
-        self.handlingController = handlingController
+    init(optionType: OptionType, selectedIndex: Int) {
         self.optionType = optionType
+        self.selectedIndex = selectedIndex
         self.options = optionType == .location ? Service.shared.locations : Service.shared.categories
         super.init(nibName: nil, bundle: nil)
     }
@@ -62,7 +67,6 @@ extension AdOptionsController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: optionCell, for: indexPath)
-        let selectedIndex = optionType == .category ? handlingController.selectedCategoryIndex : handlingController.selectedLocationIndex
         cell.accessoryType = indexPath.row == selectedIndex ? .checkmark : .none
         cell.textLabel?.text = options[indexPath.row]
         return cell
@@ -70,15 +74,11 @@ extension AdOptionsController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if optionType == .category {
-            handlingController.selectedCategoryIndex = indexPath.row
+            delegate?.didSelectCategory(withIndex: indexPath.row)
         } else if optionType == .location {
-            handlingController.selectedLocationIndex = indexPath.row
+            delegate?.didSelectLocation(withIndex: indexPath.row)
         }
-  
-        navigationController?.popViewController(animated: true)
-//        let selectedCell = tableView.cellForRow(at: indexPath)
-//        selectedCell?.accessoryType = .checkmark
-//        tableView.reloadData()
+        selectedIndex = indexPath.row
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

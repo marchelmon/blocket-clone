@@ -28,7 +28,7 @@ class AdsController: UITableViewController {
         super.viewDidLoad()
             
         tableView.register(AdCell.self, forCellReuseIdentifier: reuseIdentifier)
-        
+    
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -47,9 +47,8 @@ class AdsController: UITableViewController {
             topButton.image = nil
             topButton.image = filterImage
         } else {
-            print("Should show filter")
-            let controller = FilterController()
-            present(controller, animated: true, completion: nil)
+            let navController = UINavigationController(rootViewController: FilterController())
+            present(navController, animated: true, completion: nil)
         }
     }
     
@@ -66,8 +65,8 @@ class AdsController: UITableViewController {
     }
     
     @IBAction func pressedLocationTitle(_ sender: UIButton) {
-        let controller = FilterController()
-        present(controller, animated: true, completion: nil)
+        let navController = UINavigationController(rootViewController: FilterController())
+        present(navController, animated: true, completion: nil)
     }
     
 }

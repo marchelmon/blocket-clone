@@ -29,25 +29,13 @@ class NewAdController: UIViewController {
     
     private let imagePicker = UIImagePickerController()
     private var imageIndex = 0
-    var selectedCategoryIndex: Int = 1000 {
-        didSet {
-            guard selectedCategoryIndex != 1000 else { return }
-            self.categoryTapView.viewText.textColor = UIColor(white: 0.1, alpha: 0.9)
-            categoryTapView.viewText.text = Service.shared.categories[selectedCategoryIndex]
-        }
-    }
-    var selectedLocationIndex: Int = 1000 {
-        didSet {
-            guard selectedLocationIndex != 1000 else { return }
-            locationTapView.viewText.textColor = UIColor(white: 0.1, alpha: 0.9)
-            locationTapView.viewText.text = Service.shared.locations[selectedLocationIndex]
-        }
-    }
+    private var categoryIndex = 0
+    private var locationIndex = 0
     
     private var buttons = [UIButton]()
     
     private let adKindLarge = SimpleLabel(text: "What would you like to sell?", fontSize: 22, isBold: true)
-    private let adInfoLarge = SimpleLabel(text: "Ad information?", fontSize: 22, isBold: true)
+    private let adInfoLarge = SimpleLabel(text: "Ad information", fontSize: 22, isBold: true)
     private let contactsLarge = SimpleLabel(text: "Contacts", fontSize: 22, isBold: true)
     private let imagesLabel = SimpleLabel(text: "Images", fontSize: 15, isBold: true)
     private let categoryLabel = SimpleLabel(text: "Category", fontSize: 15, isBold: true)
@@ -349,11 +337,13 @@ extension NewAdController: TappableViewDelegate, CLLocationManagerDelegate {
         }
     }
     func showAllCategories() {
-        let controller = AdOptionsController(handlingController: self, optionType: .category)
+        let controller = AdOptionsController(optionType: .category, selectedIndex: categoryIndex)
+        controller.delegate = self
         navigationController?.pushViewController(controller, animated: true)
     }
     func showAllLocations() {
-        let controller = AdOptionsController(handlingController: self, optionType: .location)
+        let controller = AdOptionsController(optionType: .location, selectedIndex: locationIndex)
+        controller.delegate = self
         navigationController?.pushViewController(controller, animated: true)
         
     }
@@ -368,6 +358,24 @@ extension NewAdController: TappableViewDelegate, CLLocationManagerDelegate {
             self.locationTapView.viewText.text = city
             
         }
+    }
+}
+
+extension NewAdController: AdOptionsControllerDelegate {
+    func didSelectCategory(withIndex index: Int) {
+        categoryTapView.viewText.textColor = UIColor(white: 0.1, alpha: 0.9)
+        categoryTapView.viewText.text = Service.shared.categories[index]
+        categoryIndex = index
+
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func didSelectLocation(withIndex index: Int) {
+        locationTapView.viewText.textColor = UIColor(white: 0.1, alpha: 0.9)
+        locationTapView.viewText.text = Service.shared.locations[index]
+        locationIndex = index
+        
+        navigationController?.popViewController(animated: true)
     }
 }
 
