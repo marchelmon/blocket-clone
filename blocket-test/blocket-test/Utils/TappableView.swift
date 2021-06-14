@@ -24,7 +24,7 @@ class TappableView: UIView {
         return label
     }()
     
-    private let locationButton: LocationButton
+    private let locationButton = LocationButton(color: #colorLiteral(red: 0.04465086914, green: 0.5049166132, blue: 1, alpha: 1))
     
     private let arrowIcon: UIImageView = {
         let image = UIImage(systemName: "chevron.right")?.withRenderingMode(.alwaysOriginal).withTintColor(.black)
@@ -33,8 +33,7 @@ class TappableView: UIView {
         return iv
     }()
     
-    init(placeholder: String, includeLocationButton: Bool = false, locationButtonColor: UIColor = .white) {
-        self.locationButton = LocationButton(color: locationButtonColor)
+    init(placeholder: String, includeLocationButton: Bool = false) {
         super.init(frame: .zero)
         
         viewText.text = placeholder

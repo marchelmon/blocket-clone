@@ -26,20 +26,7 @@ class FilterCell: UITableViewCell {
     
     let toggle = UISwitch()
     
-    let locationButton: UIButton = {
-        let image = UIImage(systemName: "location.fill")?.withRenderingMode(.alwaysOriginal).withTintColor(#colorLiteral(red: 0.8075824873, green: 0.187832036, blue: 0.1575775297, alpha: 1))
-        let button = UIButton()
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-        button.setImage(image, for: .normal)
-        button.setTitle(" GPS", for: .normal)
-        button.setTitleColor(#colorLiteral(red: 0.8075824873, green: 0.187832036, blue: 0.1575775297, alpha: 1), for: .normal)
-        button.setDimensions(width: 60, height: 30)
-        button.backgroundColor = .white
-        button.layer.borderWidth = 1
-        button.layer.borderColor = #colorLiteral(red: 0.8075824873, green: 0.187832036, blue: 0.1575775297, alpha: 1)
-        button.layer.cornerRadius = 6
-        return button
-    }()
+    let locationButton = LocationButton(color: #colorLiteral(red: 0.8075824873, green: 0.187832036, blue: 0.1575775297, alpha: 1))
     
     let arrowIcon: UIImageView = {
         let icon = UIImage(systemName: "chevron.right")?.withRenderingMode(.alwaysOriginal).withTintColor(.black)

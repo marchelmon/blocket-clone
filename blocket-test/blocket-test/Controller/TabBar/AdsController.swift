@@ -47,6 +47,7 @@ class AdsController: UITableViewController {
             topButton.image = nil
             topButton.image = filterImage
         } else {
+            print("Should show filter")
             let controller = FilterController()
             present(controller, animated: true, completion: nil)
         }
